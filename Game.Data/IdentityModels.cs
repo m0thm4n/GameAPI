@@ -29,5 +29,7 @@ namespace Game.API.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<XboxGame> XboxGames { get; set; }
     }
 }

@@ -2,16 +2,12 @@
 
 namespace Game.Models.XboxModels
 {
-    public class XboxPostModel
+    public class XboxUpdateModel
     {
-        [Required]
+        public int XboxId { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public double Rating { get; set; }
-        public string MaturityRating { get; set; }
-        public string Genre { get; set; }
-
     }
 }
-
 
