@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
 
 namespace Game.Models.XboxModels
 {
-    public class XboxPostModel
+    public class XboxCreateModel
     {
         [Required]
         public string Name { get; set; }
@@ -19,6 +15,11 @@ namespace Game.Models.XboxModels
         public string MaturityRating { get; set; }
         [Required]
         public double Rating { get; set; }
+        [Required]
+        public string Developer { get; set; }
+        [Required]
+        public string Publisher { get; set; }
+        
 
     }
 }
