@@ -38,29 +38,26 @@ namespace Game.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
-                .Conventions
-                .Remove<PluralizingTableNameConvention>();
-
-            modelBuilder
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
 
-        public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
-        {
-            public IdentityUserLoginConfiguration()
-            {
-                HasKey(iul => iul.UserId);
-            }
-        }
+    }
 
-        public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    {
+        public IdentityUserLoginConfiguration()
         {
-            public IdentityUserRoleConfiguration()
-            {
-                HasKey(iur => iur.UserId);
-            }
+            HasKey(IdentityUserLoginConfiguration => IdentityUserLoginConfiguration.UserId);
+        }
+    }
+
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
+        {
+            HasKey(IdentityUserLoginConfiguration => IdentityUserLoginConfiguration.UserId);
         }
     }
 }
