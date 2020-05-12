@@ -32,9 +32,9 @@ namespace Game.Data
         {
             return new ApplicationDbContext();
         }
+        public DbSet<PCGame> PCGames { get; set; }
 
         public DbSet<XboxGame> XboxGames { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
