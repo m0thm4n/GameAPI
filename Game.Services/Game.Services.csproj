@@ -47,8 +47,32 @@
     <Reference Include="System.Xml"/>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+=======
+    <Compile Include="PCGameService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Game.Contracts\Game.Contracts.csproj">
+      <Project>{4460F274-73FC-422A-8828-5C87536F640C}</Project>
+      <Name>Game.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Game.Data\Game.Data.csproj">
+      <Project>{A07B87C7-4AF9-429D-853F-C4A8AB787A7C}</Project>
+      <Name>Game.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Game.Models\Game.Models.csproj">
+      <Project>{C560F258-3527-4201-93BF-30DCB92C86E1}</Project>
+      <Name>Game.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+>>>>>>> Stashed changes
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
  </Project>

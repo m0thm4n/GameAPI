@@ -32,6 +32,11 @@ namespace Game.API.Models
             return new ApplicationDbContext();
         }
 
+<<<<<<< Updated upstream
+=======
+        public DbSet<PCGame> PCGames { get; set; }
+
+>>>>>>> Stashed changes
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
