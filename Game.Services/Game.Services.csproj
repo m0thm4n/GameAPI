@@ -58,6 +58,10 @@
     <Compile Include="XboxService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Game.Contracts\Game.Contracts.csproj">
+      <Project>{4460F274-73FC-422A-8828-5C87536F640C}</Project>
+      <Name>Game.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Game.Data\Game.Data.csproj">
       <Project>{A07B87C7-4AF9-429D-853F-C4A8AB787A7C}</Project>
       <Name>Game.Data</Name>
