@@ -393,9 +393,21 @@
     <Content Include="Scripts\jquery-3.5.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Game.Contracts\Game.Contracts.csproj">
+      <Project>{4460F274-73FC-422A-8828-5C87536F640C}</Project>
+      <Name>Game.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Game.Data\Game.Data.csproj">
       <Project>{a07b87c7-4af9-429d-853f-c4a8ab787a7c}</Project>
       <Name>Game.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Game.Models\Game.Models.csproj">
+      <Project>{C560F258-3527-4201-93BF-30DCB92C86E1}</Project>
+      <Name>Game.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Game.Services\Game.Services.csproj">
+      <Project>{117CE6A3-F80B-4858-BE7D-87F9589ECC0D}</Project>
+      <Name>Game.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

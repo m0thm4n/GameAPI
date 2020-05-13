@@ -53,7 +53,7 @@ namespace Game.API.Controllers
         }
 
         [HttpGet]
-        [Route("ListAll")]
+        [Route("GetAllGames")]
         public IHttpActionResult Get()
         {
             _xboxService = new XboxService();
