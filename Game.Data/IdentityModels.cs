@@ -4,6 +4,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Game.Data;
+using Game.Data.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -32,7 +33,7 @@ namespace Game.Data
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Playstation>
+        public DbSet<PlaystationGame> PlaystationGames { get; set; }
 
         public DbSet<PCGame> PCGames { get; set; }
 
