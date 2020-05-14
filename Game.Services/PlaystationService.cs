@@ -1,5 +1,5 @@
-﻿using Game.Models;
-using Game.Data;
+﻿using Game.Data;
+using Game.Models.Playstation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace Game.Services
             var entity = new PlaystationGame()
             {
                 PlaystationGameId = playstaionGameToCreate.PlaystationGameId,
-                Name = playstaionGameToCreate.Name,
+                Title = playstaionGameToCreate.Title,
                 Developer = playstaionGameToCreate.Developer,
                 Publisher = playstaionGameToCreate.Publisher,
                 Rating = playstaionGameToCreate.Rating,
@@ -39,7 +39,7 @@ namespace Game.Services
             }
         }
 
-        public PlaystationGameItem GetGame(int id)
+        public PlaystationGameModel GetGame(int id)
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
@@ -48,7 +48,7 @@ namespace Game.Services
             }
         }
 
-        public IEnumerable<PlaystationGameItemList> GetGames()
+        public IEnumerable<PlaystationGameListModel> GetGames()
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {

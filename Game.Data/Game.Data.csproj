@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\PlaystationGame.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Entities\PCGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

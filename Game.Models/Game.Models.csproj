@@ -50,6 +50,11 @@
     <Compile Include="PC\PCModel.cs" />
     <Compile Include="PC\PCCreateModel.cs" />
     <Compile Include="PC\PCUpdateModel.cs" />
+    <Compile Include="Playstation\PlaystationDeleteModel.cs" />
+    <Compile Include="Playstation\PlaystationGameCreateModel.cs" />
+    <Compile Include="Playstation\PlaystationGameListModel.cs" />
+    <Compile Include="Playstation\PlaystationGameModel.cs" />
+    <Compile Include="Playstation\PlaystationUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
