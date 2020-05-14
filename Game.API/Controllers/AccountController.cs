@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using Game.API.Models;
 using Game.API.Providers;
 using Game.API.Results;
+using Game.Data;
 
 namespace Game.API.Controllers
 {
