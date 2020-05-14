@@ -1,7 +1,5 @@
-﻿using Game.API.Models;
-using Game.Contracts;
-using Game.Data.Entites.PlaystationGame;
-using Game.Models;
+﻿using Game.Models;
+using Game.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,3 +65,4 @@ namespace Game.Services
             }
         }
     }
+}
