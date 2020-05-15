@@ -1,4 +1,6 @@
-﻿using Game.Data;
+﻿using Game.Contracts;
+using Game.Data;
+using Game.Data.Entities;
 using Game.Models.Playstation;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Security.Policy;
 
 namespace Game.Services
 {
-    class PlaystationService : IPlaystationGameService
+    public class PlaystationService : IPlaystationService
     {
         public void CreateGame(PlaystationGameCreateModel playstaionGameToCreate)
         {

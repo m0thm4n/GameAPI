@@ -1,26 +1,20 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System;
 
-namespace Game.Models.XboxModels
+namespace Game.Models.Xbox
 {
-    public class XboxPostModel
+    public class XboxDetailsModel
     {
-        [Required]
+        public int XboxId { get; set; }
         public string Name { get; set; }
-        [Required]
         public decimal Price { get; set; }
-        [Required]
         public string Genre { get; set; }
-        [Required]
         public string MaturityRating { get; set; }
-        [Required]
         public double Rating { get; set; }
-
+        public string Developer { get; set; }
+        public string Publisher { get; set; }
     }
 }
-
-

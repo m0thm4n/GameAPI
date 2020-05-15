@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Game.Models.XboxModels
+namespace Game.Models.Xbox
 {
     public class XboxCreateModel
     {
@@ -19,9 +23,6 @@ namespace Game.Models.XboxModels
         public string Developer { get; set; }
         [Required]
         public string Publisher { get; set; }
-        
 
     }
 }
-
-

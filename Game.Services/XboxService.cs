@@ -1,13 +1,13 @@
 ﻿using Game.Contracts;
 using Game.Data;
-using Game.Models.XboxModels;
-using System;
+using Game.Data.Entities;
+using Game.Models.Xbox;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Game.Services
 {
-    public class XboxService : IXboxService<XboxGame>
+    public class XboxService : IXboxService
     {
         
         public void CreateXboxGame(XboxCreateModel model)
@@ -44,13 +44,13 @@ namespace Game.Services
             }
         }
 
-        public IEnumerable<XboxGetAllModel> GetAllXboxGames()
+        public IEnumerable<XboxGetAllGamesModel> GetAllXboxGames()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 return ctx
                     .XboxGames
-                    .Select(x => new XboxGetAllModel()
+                    .Select(x => new XboxGetAllGamesModel()
                     {
                         XboxId = x.XboxId,
                         Name = x.Name,
@@ -61,7 +61,7 @@ namespace Game.Services
             }
         }
 
-        public XboxDetailModel GetXboxGame(int id)
+        public XboxDetailsModel GetXboxGame(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -70,7 +70,7 @@ namespace Game.Services
                     .XboxGames
                     .Single(e => e.XboxId == id);
                 return
-                    new XboxDetailModel
+                    new XboxDetailsModel
                     {
                         XboxId = entity.XboxId,
                         Name = entity.Name,
@@ -84,7 +84,7 @@ namespace Game.Services
             }
         }
 
-        public void UpdateXboxGame(XboxUpdateModel xboxToUpdate)
+        public void UpdateXboxGame(XboxUpdatesModel xboxToUpdate)
         {
             using (var ctx = new ApplicationDbContext())
             {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Data
+namespace Game.Data.Entities
 {
     public class XboxGame
     {
