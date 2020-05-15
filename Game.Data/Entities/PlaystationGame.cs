@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Game.Data.Entities
 {
-    class PlaystationGame
+    public class PlaystationGame
     {
         [Key]
         public int PCGameId { get; set; }
