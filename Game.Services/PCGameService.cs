@@ -24,15 +24,15 @@ namespace Game.Services
                 return ctx
                     .PCGames
                     .Select(PCGame => new PCListModel()
-                {
-                     Title = PCGame.Title,
-                     Price = PCGame.Price,
-                     Genre = PCGame.Genre,
-                     MaturityRating = PCGame.MaturityRating,
-                     Rating = PCGame.Rating,
-                     Publisher = PCGame.Publisher,
-                     Developer = PCGame.Developer
-                })
+                    {
+                        Title = PCGame.Title,
+                        Price = PCGame.Price,
+                        Genre = PCGame.Genre,
+                        MaturityRating = PCGame.MaturityRating,
+                        Rating = PCGame.Rating,
+                        Publisher = PCGame.Publisher,
+                        Developer = PCGame.Developer
+                    })
                 .ToList();
             }
         }

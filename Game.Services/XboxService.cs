@@ -9,7 +9,7 @@ namespace Game.Services
 {
     public class XboxService : IXboxService
     {
-        
+
         public void CreateXboxGame(XboxCreateModel model)
         {
             var xboxToCreate = new XboxGame()
