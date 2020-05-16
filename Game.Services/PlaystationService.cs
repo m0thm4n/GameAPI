@@ -1,4 +1,6 @@
-﻿using Game.Data;
+﻿using Game.Contracts;
+using Game.Data;
+using Game.Data.Entities;
 using Game.Models.Playstation;
 using System;
 using Game.Contracts;

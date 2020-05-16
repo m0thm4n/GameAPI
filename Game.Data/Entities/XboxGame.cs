@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Data
+namespace Game.Data.Entities
 {
     public class XboxGame
     {
@@ -22,9 +22,14 @@ namespace Game.Data
         public string MaturityRating { get; set; }
         [Required]
         public decimal Price { get; set; }
-        //ToDo: Make Dev & Pub into ForeignKeys?
-        public string Developer { get; set; }
-        public string Publisher { get; set; }
+        
+        [ForeignKey("Developer")]
+        public int DeveloperId { get; set; }
+        public virtual Developer Developer { get; set; }
+
+        [ForeignKey("Publisher")]
+        public int PublisherId { get; set; }
+        public virtual Publisher Publisher { get; set; }
 
     }
 

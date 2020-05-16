@@ -1,15 +1,15 @@
 ﻿using Game.Contracts;
 using Game.Data;
-using Game.Models.XboxModels;
-using System;
+using Game.Data.Entities;
+using Game.Models.Xbox;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Game.Services
 {
-    public class XboxService : IXboxService<XboxGame>
+    public class XboxService : IXboxService
     {
-        
+
         public void CreateXboxGame(XboxCreateModel model)
         {
             var xboxToCreate = new XboxGame()
@@ -19,8 +19,8 @@ namespace Game.Services
                 Genre = model.Genre,
                 MaturityRating = model.MaturityRating,
                 Rating = model.Rating,
-                Developer = model.Developer,
-                Publisher = model.Publisher
+                DeveloperId = model.DeveloperId,
+                PublisherId = model.PublisherId
             };
             using (ApplicationDbContext ctx = new ApplicationDbContext())
             {
@@ -44,24 +44,25 @@ namespace Game.Services
             }
         }
 
-        public IEnumerable<XboxGetAllModel> GetAllXboxGames()
+        public IEnumerable<XboxGetAllGamesModel> GetAllXboxGames()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 return ctx
                     .XboxGames
-                    .Select(x => new XboxGetAllModel()
+                    .Select(x => new XboxGetAllGamesModel()
                     {
                         XboxId = x.XboxId,
                         Name = x.Name,
                         Price = x.Price,
-                        Genre = x.Genre
+                        Genre = x.Genre,
+                        Developer = x.Developer.Name
                     })
                 .ToArray();
             }
         }
 
-        public XboxDetailModel GetXboxGame(int id)
+        public XboxDetailsModel GetXboxGame(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -70,7 +71,7 @@ namespace Game.Services
                     .XboxGames
                     .Single(e => e.XboxId == id);
                 return
-                    new XboxDetailModel
+                    new XboxDetailsModel
                     {
                         XboxId = entity.XboxId,
                         Name = entity.Name,
@@ -78,13 +79,13 @@ namespace Game.Services
                         Genre = entity.Genre,
                         MaturityRating = entity.MaturityRating,
                         Rating = entity.Rating,
-                        Developer = entity.Developer,
-                        Publisher = entity.Publisher
+                        DeveloperName = entity.Developer.Name,
+                        PublisherName = entity.Publisher.Name
                     };
             }
         }
 
-        public void UpdateXboxGame(XboxUpdateModel xboxToUpdate)
+        public void UpdateXboxGame(XboxUpdatesModel xboxToUpdate)
         {
             using (var ctx = new ApplicationDbContext())
             {

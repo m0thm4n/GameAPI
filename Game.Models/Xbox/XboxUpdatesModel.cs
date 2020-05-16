@@ -1,13 +1,10 @@
-﻿using System;
-
-namespace Game.Models.XboxModels
+﻿namespace Game.Models.Xbox
 {
-    public class XboxUpdateModel
+    public class XboxUpdatesModel
     {
         public int XboxId { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public double Rating { get; set; }
     }
 }
-
