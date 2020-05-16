@@ -19,8 +19,8 @@ namespace Game.Services
                 Genre = model.Genre,
                 MaturityRating = model.MaturityRating,
                 Rating = model.Rating,
-                Developer = model.Developer,
-                Publisher = model.Publisher
+                DeveloperId = model.DeveloperId,
+                PublisherId = model.PublisherId
             };
             using (ApplicationDbContext ctx = new ApplicationDbContext())
             {
@@ -55,7 +55,8 @@ namespace Game.Services
                         XboxId = x.XboxId,
                         Name = x.Name,
                         Price = x.Price,
-                        Genre = x.Genre
+                        Genre = x.Genre,
+                        Developer = x.Developer.Name
                     })
                 .ToArray();
             }
@@ -78,8 +79,8 @@ namespace Game.Services
                         Genre = entity.Genre,
                         MaturityRating = entity.MaturityRating,
                         Rating = entity.Rating,
-                        Developer = entity.Developer,
-                        Publisher = entity.Publisher
+                        DeveloperName = entity.Developer.Name,
+                        PublisherName = entity.Publisher.Name
                     };
             }
         }
