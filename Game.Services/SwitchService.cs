@@ -1,18 +1,20 @@
 ﻿using Game.Contracts;
 using Game.Data;
 using Game.Data.Entities;
-using Game.Models.Xbox;
+using Game.Models.Switch;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Game.Services
 {
-    public class XboxService : IXboxService
+    public class SwitchService : ISwitchService
     {
-
-        public void CreateXboxGame(XboxCreateModel model)
+        public void CreateSwitchGame(SwitchCreateModel model)
         {
-            var xboxToCreate = new XboxGame()
+            var switchToCreate = new SwitchGame()
             {
                 Name = model.Name,
                 Price = model.Price,
@@ -24,56 +26,56 @@ namespace Game.Services
             };
             using (ApplicationDbContext ctx = new ApplicationDbContext())
             {
-                ctx.XboxGames.Add(xboxToCreate);
+                ctx.SwitchGames.Add(switchToCreate);
                 ctx.SaveChanges();
             }
         }
 
-        public void DeleteXboxGame(int id)
+        public void DeleteSwitchGame(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var xboxToDelete =
+                var switchToDelete =
                     ctx
-                    .XboxGames
-                    .Single(e => e.XboxId == id);
+                    .SwitchGames
+                    .Single(e => e.SwitchId == id);
 
-                ctx.XboxGames.Remove(xboxToDelete);
+                ctx.SwitchGames.Remove(switchToDelete);
 
                 ctx.SaveChanges();
             }
         }
 
-        public IEnumerable<XboxGetAllGamesModel> GetAllXboxGames()
+        public IEnumerable<SwitchGetAllModel> GetAllSwitchGames()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 return ctx
-                    .XboxGames
-                    .Select(x => new XboxGetAllGamesModel()
+                    .SwitchGames
+                    .Select(s => new SwitchGetAllModel()
                     {
-                        XboxId = x.XboxId,
-                        Name = x.Name,
-                        Price = x.Price,
-                        Genre = x.Genre,
-                        DeveloperName = x.Developer.Name
+                        SwitchId = s.SwitchId,
+                        Name = s.Name,
+                        Price = s.Price,
+                        Genre = s.Genre,
+                        DeveloperName = s.Developer.Name
                     })
                 .ToArray();
             }
         }
 
-        public XboxDetailsModel GetXboxGame(int id)
+        public SwitchDetailsModel GetSwitchGame(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .XboxGames
-                    .Single(e => e.XboxId == id);
+                    .SwitchGames
+                    .Single(e => e.SwitchId == id);
                 return
-                    new XboxDetailsModel
+                    new SwitchDetailsModel
                     {
-                        XboxId = entity.XboxId,
+                        SwitchId = entity.SwitchId,
                         Name = entity.Name,
                         Price = entity.Price,
                         Genre = entity.Genre,
@@ -85,17 +87,17 @@ namespace Game.Services
             }
         }
 
-        public void UpdateXboxGame(XboxUpdatesModel xboxToUpdate)
+        public void UpdateSwitchGame(SwitchUpdateModel switchToUpdate)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                XboxGame xboxWeWantToUpdate = ctx.XboxGames.Find(xboxToUpdate.Name);
+                SwitchGame switchWeWantToUpdate = ctx.SwitchGames.Find(switchToUpdate.Name);
 
-                if (xboxToUpdate != null)
+                if (switchToUpdate != null)
                 {
-                    xboxWeWantToUpdate.Name = xboxToUpdate.Name;
-                    xboxWeWantToUpdate.Price = xboxToUpdate.Price;
-                    xboxWeWantToUpdate.Rating = xboxToUpdate.Rating;
+                    switchWeWantToUpdate.Name = switchToUpdate.Name;
+                    switchWeWantToUpdate.Price = switchToUpdate.Price;
+                    switchWeWantToUpdate.Rating = switchToUpdate.Rating;
 
                     ctx.SaveChanges();
                 }

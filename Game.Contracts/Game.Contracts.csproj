@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="IPCService.cs" />
     <Compile Include="IPlaystationService.cs" />
+    <Compile Include="ISwitchService.cs" />
     <Compile Include="IXboxService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
