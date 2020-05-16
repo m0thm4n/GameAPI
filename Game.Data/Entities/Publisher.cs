@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Data.Entities
 {
-    public class Pulisher
+    public class Publisher
     {
         public int PublisherId { get; set; }
         public string Name { get; set; }

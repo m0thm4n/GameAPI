@@ -1,14 +1,8 @@
 ﻿using Game.Data;
 using Game.Contracts;
-using Game.Data;
 using Game.Models.PC;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game.Services
 {
@@ -30,15 +24,15 @@ namespace Game.Services
                 return ctx
                     .PCGames
                     .Select(PCGame => new PCListModel()
-                {
-                     Title = PCGame.Title,
-                     Price = PCGame.Price,
-                     Genre = PCGame.Genre,
-                     MaturityRating = PCGame.MaturityRating,
-                     Rating = PCGame.Rating,
-                     Publisher = PCGame.Publisher,
-                     Developer = PCGame.Developer
-                })
+                    {
+                        Title = PCGame.Title,
+                        Price = PCGame.Price,
+                        Genre = PCGame.Genre,
+                        MaturityRating = PCGame.MaturityRating,
+                        Rating = PCGame.Rating,
+                        Publisher = PCGame.Publisher,
+                        Developer = PCGame.Developer
+                    })
                 .ToList();
             }
         }

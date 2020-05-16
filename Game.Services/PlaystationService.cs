@@ -1,4 +1,6 @@
-﻿using Game.Data;
+﻿using Game.Contracts;
+using Game.Data;
+using Game.Data.Entities;
 using Game.Models.Playstation;
 using System;
 using Game.Contracts;
@@ -43,8 +45,22 @@ namespace Game.Services
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
-                var entity = context.PlaystationGames.Find(id);
-                return entity;
+                var entity =
+                    context
+                    .PlaystationGames
+                    .Single(e => e.PlaystationGameId == id);
+                return
+                    new PlaystationGameModel
+                    {
+                        PlaystationGameId = entity.PlaystationGameId,
+                        Title = entity.Title,
+                        Genre = entity.Genre,
+                        Rating = entity.Rating,
+                        MaturityRating = entity.MaturityRating,
+                        Price = entity.Price,
+                        DeveloperName = entity.Developer.Name,
+                        PublisherName = entity.Publisher.Name
+                    };
             }
         }
 
@@ -52,8 +68,20 @@ namespace Game.Services
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
-                var entities = context.PlaystationGames.ToList();
-                return entities;
+                return context
+                   .PlaystationGames
+                   .Select(game => new PlaystationGameListModel()
+                   {
+                       PlaystationGameId = game.PlaystationGameId,
+                       Title = game.Title,
+                       Genre = game.Genre,
+                       Rating = game.Rating,
+                       MaturityRating = game.MaturityRating,
+                       Price = game.Price,
+                       DeveloperName = game.Developer.Name,
+                       PublisherName = game.Publisher.Name,
+                   })
+               .ToArray();
             }
         }
 

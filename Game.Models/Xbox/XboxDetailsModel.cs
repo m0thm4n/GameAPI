@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Game.Models.XboxModels
+﻿namespace Game.Models.Xbox
 {
-    public class XboxDetailModel
+    public class XboxDetailsModel
     {
         public int XboxId { get; set; }
         public string Name { get; set; }
@@ -10,8 +8,7 @@ namespace Game.Models.XboxModels
         public string Genre { get; set; }
         public string MaturityRating { get; set; }
         public double Rating { get; set; }
-        public string Developer { get; set; }
-        public string Publisher { get; set; }
-
+        public string DeveloperName { get; set; }
+        public string PublisherName { get; set; }
     }
 }
