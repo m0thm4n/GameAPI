@@ -9,7 +9,7 @@ using Game.Data.Entities;
 
 namespace Game.Services
 {
-    class PlaystationService : IPlaystationService
+    public class PlaystationService : IPlaystationService
     {
         public void CreatePlaystationGame(PlaystationGameCreateModel playstaionGameToCreate)
         {
