@@ -13,7 +13,7 @@ namespace Game.API.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public IHttpActionResult Create(XboxCreateModel xboxToCreate)
+        public IHttpActionResult Create([FromBody] XboxCreateModel xboxToCreate)
         {
             _xboxService = new XboxService();
 
@@ -24,7 +24,7 @@ namespace Game.API.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public IHttpActionResult Update(XboxUpdatesModel xboxToUpdate)
+        public IHttpActionResult Update([FromBody] XboxUpdatesModel xboxToUpdate)
         {
             if (ModelState.IsValid)
             {
@@ -38,17 +38,17 @@ namespace Game.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetSingleGame")]
-        public IHttpActionResult Get(int id)
+        [Route("{XboxId:int}")]
+        public IHttpActionResult Get([FromUri]int xboxId)
         {
             _xboxService = new XboxService();
 
-            return Ok(_xboxService.GetXboxGame(id));
+            return Ok(_xboxService.GetXboxGame(xboxId));
         }
 
         [HttpGet]
-        [Route("GetAllGames")]
-        public IHttpActionResult Get()
+        [Route("GetAll")]
+        public IHttpActionResult List()
         {
             _xboxService = new XboxService();
             _xboxService.GetAllXboxGames();
@@ -56,17 +56,16 @@ namespace Game.API.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete([FromUri] int xboxId)
         {
             if (ModelState.IsValid)
             {
                 _xboxService = new XboxService();
-                _xboxService.DeleteXboxGame(id);
+                _xboxService.DeleteXboxGame(xboxId);
 
                 return Ok();
             }
             return BadRequest("Wrong ID# entered, please try again.");
-
         }
     }
 }

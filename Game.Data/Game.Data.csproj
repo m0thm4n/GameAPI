@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Developer.cs" />
+    <Compile Include="Entities\SwitchGame.cs" />
     <Compile Include="Entities\PlaystationGame.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="IdentityModels.cs" />
