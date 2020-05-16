@@ -1,5 +1,6 @@
 ﻿using Game.Contracts;
 using Game.Models.Playstation;
+using Game.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Game.API.Controllers
 
             _playstationService = new PlaystationService();
 
-            _playstationService.CreateGame(model);
+            _playstationService.CreatePlaystationGame(model);
 
             return Ok();
         }
@@ -33,26 +34,26 @@ namespace Game.API.Controllers
         public IHttpActionResult List()
         {
             _playstationService = new PlaystationService();
-            return Ok(_playstationService.GetPlaystationGameList());
+            return Ok(_playstationService.GetPlaystationGames());
         }
 
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
             _playstationService = new PlaystationService();
-            _playstationService.GetPlaystationGames(id);
+            _playstationService.GetPlaystationGame(id);
             return Ok();
         }
 
         [HttpPut]
-        public IHttpActionResult Update([FromBody] PlaystationUpdateModel game)
+        public IHttpActionResult Update(int id, [FromBody] PlaystationUpdateModel game)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             _playstationService = new PlaystationService();
 
-            _playstationService.UpdatePlaystationGame();
+            _playstationService.UpdatePlaystationGame(id, game);
 
             return Ok();
         }
@@ -61,7 +62,7 @@ namespace Game.API.Controllers
         public IHttpActionResult Delete(int id)
         {
             _playstationService = new PlaystationService();
-            _playstationService.DeleteGame();
+            _playstationService.DeletePlaystationGame(id);
             return Ok();
         }
     }
