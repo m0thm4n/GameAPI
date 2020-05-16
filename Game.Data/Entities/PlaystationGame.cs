@@ -29,6 +29,6 @@ namespace Game.Data.Entities
 
         [ForeignKey("Publisher")]
         public int PublisherId { get; set; }
-        public virtual Publisher Pulisher { get; set; }
+        public virtual Publisher Publisher { get; set; }
     }
 }
