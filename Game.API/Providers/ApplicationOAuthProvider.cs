@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Game.API.Models;
+using Game.Data;
 
 namespace Game.API.Providers
 {

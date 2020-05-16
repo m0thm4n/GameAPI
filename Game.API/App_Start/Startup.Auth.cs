@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Game.API.Providers;
 using Game.API.Models;
+using Game.Data;
 
 namespace Game.API
 {
