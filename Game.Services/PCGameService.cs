@@ -30,6 +30,7 @@ namespace Game.Services
                 return ctx
                     .PCGames
                     .Select(PCGame => new PCListModel()
+<<<<<<< Updated upstream
                 {
                      Title = PCGame.Title,
                      Price = PCGame.Price,
@@ -39,6 +40,17 @@ namespace Game.Services
                      Publisher = PCGame.Publisher,
                      Developer = PCGame.Developer
                 })
+=======
+                    {
+                        Title = PCGame.Title,
+                        Price = PCGame.Price,
+                        Genre = PCGame.Genre,
+                        MaturityRating = PCGame.MaturityRating,
+                        Rating = PCGame.Rating,
+                        Publisher = PCGame.PublisherId,
+                        Developer = PCGame.DeveloperId
+                    })
+>>>>>>> Stashed changes
                 .ToList();
             }
         }
@@ -56,8 +68,8 @@ namespace Game.Services
                     pcGameWeWantToUpdate.Genre = pcGameToUpdate.Genre;
                     pcGameWeWantToUpdate.MaturityRating = pcGameToUpdate.MaturityRating;
                     pcGameWeWantToUpdate.Rating = pcGameToUpdate.Rating;
-                    pcGameWeWantToUpdate.Publisher = pcGameToUpdate.Publisher;
-                    pcGameWeWantToUpdate.Developer = pcGameToUpdate.Developer;
+                    pcGameWeWantToUpdate.PublisherId = pcGameToUpdate.Publisher;
+                    pcGameWeWantToUpdate.DeveloperId = pcGameToUpdate.Developer;
 
                     ctx.SaveChanges();
                 }

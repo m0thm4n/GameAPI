@@ -2,9 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+<<<<<<< Updated upstream
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+=======
+using System.ComponentModel.DataAnnotations.Schema;
+>>>>>>> Stashed changes
 
 namespace Game.Data
 {
@@ -17,8 +21,8 @@ namespace Game.Data
             Genre = pcGameToCreate.Genre;
             MaturityRating = pcGameToCreate.MaturityRating;
             Rating = pcGameToCreate.Rating;
-            Publisher = pcGameToCreate.Publisher;
-            Developer = pcGameToCreate.Developer;
+            PublisherId = pcGameToCreate.Publisher;
+            DeveloperId = pcGameToCreate.Developer;
         }
 
         public PCGame(PCDeleteModel pcGameToDelete)
@@ -28,8 +32,8 @@ namespace Game.Data
             Genre = pcGameToDelete.Genre;
             MaturityRating = pcGameToDelete.MaturityRating;
             Rating = pcGameToDelete.Rating;
-            Publisher = pcGameToDelete.Publisher;
-            Developer = pcGameToDelete.Developer;
+            PublisherId = pcGameToDelete.Publisher;
+            DeveloperId = pcGameToDelete.Developer;
         }
 
         [Key]
@@ -37,9 +41,11 @@ namespace Game.Data
         [Required]
         public string Title { get; set; }
         [Required]
-        public string Developer { get; set; }
+        [ForeignKey("Developer")]
+        public string DeveloperId { get; set; }
         [Required]
-        public string Publisher { get; set; }
+        [ForeignKey("Publisher")]
+        public string PublisherId { get; set; }
         [Required]
         public string Genre { get; set; }
         [Required]
