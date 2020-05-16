@@ -17,11 +17,9 @@ namespace Game.Services
             {
                 PlaystationGameId = playstaionGameToCreate.PlaystationGameId,
                 Title = playstaionGameToCreate.Title,
-                Developer = playstaionGameToCreate.Developer,
-                Publisher = playstaionGameToCreate.Publisher,
                 Rating = playstaionGameToCreate.Rating,
                 MaturityRating = playstaionGameToCreate.MaturityRating,
-                Price = playstaionGameToCreate.Price
+                Price = playstaionGameToCreate.Price,
             };
 
             using (ApplicationDbContext context = new ApplicationDbContext())
