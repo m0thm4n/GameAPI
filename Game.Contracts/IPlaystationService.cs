@@ -9,10 +9,10 @@ namespace Game.Contracts
 {
     public interface IPlaystationService
     {
-        void CreatePCGame(PlaystationGameCreateModel playstationGameToCreate);
-        List<PlaystationGameListModel> GetPlaystationGameList();
-        PlaystationGameModel GetPlaystationGame();
-        void UpdatePCGame(PlaystationUpdateModel pcGameToUpdate);
-        void DeleteGame(PlaystationDeleteModel pcGameToDelete);
+        void CreatePlaystationGame(PlaystationGameCreateModel playstationGameToCreate);
+        IEnumerable<PlaystationGameListModel> GetPlaystationGames();
+        PlaystationGameModel GetPlaystationGame(int id);
+        void UpdatePlaystationGame(int id, PlaystationUpdateModel playstationGameToUpdate);
+        void DeletePlaystationGame(int id);
     }
 }
