@@ -83,6 +83,7 @@
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Entities\PCGame.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\XboxGame.cs" />
   </ItemGroup>
