@@ -1,4 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Game.Data.Entities
 {
@@ -9,10 +15,6 @@ namespace Game.Data.Entities
         [Required]
         public string Title { get; set; }
         [Required]
-        public string Developer { get; set; }
-        [Required]
-        public string Publisher { get; set; }
-        [Required]
         public string Genre { get; set; }
         [Required]
         public double Rating { get; set; }
@@ -20,5 +22,13 @@ namespace Game.Data.Entities
         public string MaturityRating { get; set; }
         [Required]
         public decimal Price { get; set; }
+
+        [ForeignKey("Developer")]
+        public int DeveloperId { get; set; }
+        public virtual Developer Developer { get; set; }
+
+        [ForeignKey("Pulisher")]
+        public int PublisherId { get; set; }
+        public virtual Pulisher Pulisher { get; set; }
     }
 }

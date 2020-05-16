@@ -2,14 +2,18 @@
 using Game.Data;
 using Game.Data.Entities;
 using Game.Models.Playstation;
+using System;
+using Game.Contracts;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
+using Game.Data.Entities;
 
 namespace Game.Services
 {
-    public class PlaystationService : IPlaystationService
+    class PlaystationService : IPlaystationService
     {
-        public void CreateGame(PlaystationGameCreateModel playstaionGameToCreate)
+        public void CreatePlaystationGame(PlaystationGameCreateModel playstaionGameToCreate)
         {
             var entity = new PlaystationGame()
             {
@@ -29,7 +33,7 @@ namespace Game.Services
             }
         }
 
-        public void DeleteGame(int id)
+        public void DeletePlaystationGame(int id)
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
@@ -39,7 +43,7 @@ namespace Game.Services
             }
         }
 
-        public PlaystationGameModel GetGame(int id)
+        public PlaystationGameModel GetPlaystationGame(int id)
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
@@ -48,7 +52,7 @@ namespace Game.Services
             }
         }
 
-        public IEnumerable<PlaystationGameListModel> GetGames()
+        public IEnumerable<PlaystationGameListModel> GetPlaystationGames()
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
@@ -57,7 +61,7 @@ namespace Game.Services
             }
         }
 
-        public void UpdateGame(int id)
+        public void UpdatePlaystationGame(int id, PlaystationUpdateModel playstationGameToUpdate)
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
