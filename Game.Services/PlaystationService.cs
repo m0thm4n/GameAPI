@@ -1,13 +1,14 @@
 ﻿using Game.Data;
 using Game.Models.Playstation;
 using System;
+using Game.Contracts;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
 
 namespace Game.Services
 {
-    class PlaystationService : IPlaystationGameService
+    class PlaystationService : IPlaystationService
     {
         public void CreateGame(PlaystationGameCreateModel playstaionGameToCreate)
         {
@@ -39,7 +40,7 @@ namespace Game.Services
             }
         }
 
-        public PlaystationGameModel GetGame(int id)
+        public PlaystationGameModel GetPlaystationGame(int id)
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
@@ -57,7 +58,7 @@ namespace Game.Services
             }
         }
 
-        public void UpdateGame(int id)
+        public void UpdatePlaystyationGame(int id)
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
