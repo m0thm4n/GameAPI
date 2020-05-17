@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="PlaystationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublisherServices.cs" />
     <Compile Include="SwitchService.cs" />
     <Compile Include="XboxService.cs" />
   </ItemGroup>

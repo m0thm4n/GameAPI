@@ -17,7 +17,7 @@ namespace Game.Services
             }
         }
 
-        public List<PCListModel> GetPCList()
+        public IEnumerable<PCListModel> GetPCGames()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -37,7 +37,30 @@ namespace Game.Services
             }
         }
 
-        public void UpdatePCGame(PCUpdateModel pcGameToUpdate)
+        public PCListModel GetPCGame(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .PCGames
+                    .Single(e => e.PCGameId == id);
+                return
+                    new PCListModel
+                    {
+                        PCGameId = entity.PCGameId,
+                        Title = entity.Title,
+                        Price = entity.Price,
+                        Genre = entity.Genre,
+                        MaturityRating = entity.MaturityRating,
+                        Rating = entity.Rating,
+                        Developer = entity.Developer,
+                        Publisher = entity.Publisher
+                    };
+            }
+        }
+
+        public void UpdatePCGame(int id, PCUpdateModel pcGameToUpdate)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -58,11 +81,17 @@ namespace Game.Services
             }
         }
 
-        public void DeleteGame(PCDeleteModel pcGameToDelete)
+        public void DeleteGame(int id)
         {
-            using (ApplicationDbContext ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
-                ctx.PCGames.Remove(new PCGame(pcGameToDelete));
+                var pcGameToDelete =
+                    ctx
+                    .PCGames
+                    .Single(e => e.PCGameId == id);
+
+                ctx.PCGames.Remove(pcGameToDelete);
+
                 ctx.SaveChanges();
             }
         }

@@ -38,6 +38,7 @@ namespace Game.Data
         public DbSet<XboxGame> XboxGames { get; set; }
 
         public DbSet<SwitchGame> SwitchGames { get; set; }
+        public DbSet<Publisher> Publisher { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
