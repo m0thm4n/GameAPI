@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="PC\PCDeleteModel.cs" />
     <Compile Include="PC\PCListModel.cs" />
-    <Compile Include="PC\PCModel.cs" />
     <Compile Include="PC\PCCreateModel.cs" />
     <Compile Include="PC\PCUpdateModel.cs" />
     <Compile Include="Playstation\PlaystationDeleteModel.cs" />
@@ -56,6 +55,18 @@
     <Compile Include="Playstation\PlaystationGameModel.cs" />
     <Compile Include="Playstation\PlaystationUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publisher\PublisherCreateModel.cs" />
+    <Compile Include="Publisher\PublisherDeleteModel.cs" />
+    <Compile Include="Publisher\PublisherListModel.cs" />
+    <Compile Include="Publisher\PublisherUpdateModel.cs" />
+    <Compile Include="Switch\SwitchCreateModel.cs" />
+    <Compile Include="Switch\SwitchDetailsModel.cs" />
+    <Compile Include="Switch\SwitchGetAllModel.cs" />
+    <Compile Include="Switch\SwitchUpdateModel.cs" />
+    <Compile Include="Xbox\XboxCreateModel.cs" />
+    <Compile Include="Xbox\XboxDetailsModel.cs" />
+    <Compile Include="Xbox\XboxGetAllGamesModel.cs" />
+    <Compile Include="Xbox\XboxUpdatesModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

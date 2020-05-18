@@ -1,12 +1,10 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Game.Data;
-using Game.Data.Entities;
+﻿using Game.Data.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Game.Data
 {
@@ -38,6 +36,10 @@ namespace Game.Data
         public DbSet<PCGame> PCGames { get; set; }
 
         public DbSet<XboxGame> XboxGames { get; set; }
+
+        public DbSet<SwitchGame> SwitchGames { get; set; }
+        public DbSet<Publisher> Publisher { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

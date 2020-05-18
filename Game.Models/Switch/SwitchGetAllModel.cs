@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Models.XboxModels
+namespace Game.Models.Switch
 {
-    public class XboxUpdateModel
+    public class SwitchGetAllModel
     {
-        public int XboxId { get; set; }
+        public int SwitchId { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public double Rating { get; set; }
+        public string Genre { get; set; }
+        public string DeveloperName { get; set; }
     }
 }
-

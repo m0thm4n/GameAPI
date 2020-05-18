@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Game.Models.PC
 {
     public class PCListModel
     {
-        public string PCGameId { get; set; }
+        [Key]
+        public int PCGameId { get; set; }
+        [Required]
         public string Title { get; set; }
-        public decimal Price { get; set; }
-        public string Genre { get; set; }
-        public string MaturityRating { get; set; }
-        public double Rating { get; set; }
-        public string Publisher { get; set; }
+        [Required]
         public string Developer { get; set; }
-
+        [Required]
+        public string Publisher { get; set; }
+        [Required]
+        public string Genre { get; set; }
+        [Required]
+        public double Rating { get; set; }
+        [Required]
+        public string MaturityRating { get; set; }
+        [Required]
+        public decimal Price { get; set; }
     }
 }

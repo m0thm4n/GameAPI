@@ -11,13 +11,15 @@ using System.Web.Http;
 
 namespace Game.API.Controllers
 {
-    [Route("api/playstation")]
+    [Authorize]
+    [RoutePrefix("api/PlaystationGames")]
     public class PlaystationController : ApiController
     {
         // GET: Playstation
         private IPlaystationService _playstationService;
 
         [HttpPost]
+        [Route("Create")]
         public IHttpActionResult Create([FromBody] PlaystationGameCreateModel model)
         {
             if (!ModelState.IsValid)
@@ -31,6 +33,7 @@ namespace Game.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAll")]
         public IHttpActionResult List()
         {
             _playstationService = new PlaystationService();
@@ -38,6 +41,7 @@ namespace Game.API.Controllers
         }
 
         [HttpGet]
+        [Route("Get")]
         public IHttpActionResult Get(int id)
         {
             _playstationService = new PlaystationService();
@@ -46,6 +50,7 @@ namespace Game.API.Controllers
         }
 
         [HttpPut]
+        [Route("Update")]
         public IHttpActionResult Update(int id, [FromBody] PlaystationUpdateModel game)
         {
             if (!ModelState.IsValid)
@@ -59,6 +64,7 @@ namespace Game.API.Controllers
         }
 
         [HttpDelete]
+        [Route("Delete")]
         public IHttpActionResult Delete(int id)
         {
             _playstationService = new PlaystationService();

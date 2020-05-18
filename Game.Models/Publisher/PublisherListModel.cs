@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Data.Entities
+namespace Game.Models.Publisher
 {
-    public class Pulisher
+    public class PublisherListModel
     {
         public int PublisherId { get; set; }
         public string Name { get; set; }

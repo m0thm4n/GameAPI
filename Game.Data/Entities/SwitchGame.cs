@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Models.PC
+namespace Game.Data.Entities
 {
-    public class PCModel
+    public class SwitchGame
     {
         [Key]
-        public int PCGameId { get; set; }
+        public int SwitchId { get; set; }
         [Required]
-        public string Title { get; set; }
-        [Required]
-        public string Developer { get; set; }
-        [Required]
-        public string Publisher { get; set; }
+        public string Name { get; set; }
         [Required]
         public string Genre { get; set; }
         [Required]
@@ -25,5 +22,13 @@ namespace Game.Models.PC
         public string MaturityRating { get; set; }
         [Required]
         public decimal Price { get; set; }
+
+        [ForeignKey("Developer")]
+        public int DeveloperId { get; set; }
+        public virtual Developer Developer { get; set; }
+
+        [ForeignKey("Publisher")]
+        public int PublisherId { get; set; }
+        public virtual Publisher Publisher { get; set; }
     }
 }
