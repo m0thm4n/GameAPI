@@ -39,6 +39,8 @@ namespace Game.Data
 
         public DbSet<SwitchGame> SwitchGames { get; set; }
 
+        public DbSet<Developer> Developers { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

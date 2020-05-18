@@ -212,6 +212,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlaystationController.cs" />
     <Compile Include="Controllers\SwitchController.cs" />
@@ -388,6 +389,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Developer\" />
     <Folder Include="Views\Playstation\" />
   </ItemGroup>
   <ItemGroup>

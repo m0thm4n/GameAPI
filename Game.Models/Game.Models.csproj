@@ -45,6 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Developer\DeveloperDeleteModel.cs" />
+    <Compile Include="Developer\DeveloperCreateModel.cs" />
+    <Compile Include="Developer\DeveloperListModel.cs" />
+    <Compile Include="Developer\DeveloperDetailModel.cs" />
+    <Compile Include="Developer\DeveloperUpdateModel.cs" />
     <Compile Include="PC\PCDeleteModel.cs" />
     <Compile Include="PC\PCListModel.cs" />
     <Compile Include="PC\PCModel.cs" />
@@ -68,5 +73,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
