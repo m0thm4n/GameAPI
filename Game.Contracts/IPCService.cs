@@ -6,8 +6,13 @@ namespace Game.Contracts
     public interface IPCService
     {
         void CreatePCGame(PCCreateModel pcGameToCreate);
-        List<PCListModel> GetPCList();
-        void UpdatePCGame(PCUpdateModel pcGameToUpdate);
-        void DeleteGame(PCDeleteModel pcGameToDelete);
+
+        IEnumerable<PCListModel> GetPCGames();
+
+        PCListModel GetPCGame(int id);
+
+        void UpdatePCGame(int id, PCUpdateModel pcGameToUpdate);
+
+        void DeleteGame(int id);
     }
 }
