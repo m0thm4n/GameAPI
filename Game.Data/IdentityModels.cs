@@ -38,6 +38,9 @@ namespace Game.Data
         public DbSet<XboxGame> XboxGames { get; set; }
 
         public DbSet<SwitchGame> SwitchGames { get; set; }
+        public DbSet<Publisher> Publisher { get; set; }
+
+        public DbSet<Developer> Developers { get; set; }
 
         public DbSet<Developer> Developers { get; set; }
         public DbSet<Publisher> Publishers { get; set; }

@@ -42,7 +42,7 @@ namespace Game.API.Controllers
 
         [HttpGet]
         [Route("Get")]
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get([FromUri] int id)
         {
             _playstationService = new PlaystationService();
             _playstationService.GetPlaystationGame(id);
@@ -51,7 +51,7 @@ namespace Game.API.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public IHttpActionResult Update(int id, [FromBody] PlaystationUpdateModel game)
+        public IHttpActionResult Update([FromUri] int id, [FromBody] PlaystationUpdateModel game)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -65,7 +65,7 @@ namespace Game.API.Controllers
 
         [HttpDelete]
         [Route("Delete")]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete([FromUri] int id)
         {
             _playstationService = new PlaystationService();
             _playstationService.DeletePlaystationGame(id);

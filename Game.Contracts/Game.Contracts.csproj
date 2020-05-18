@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDeveloperService.cs" />
     <Compile Include="IPCService.cs" />
     <Compile Include="IPlaystationService.cs" />
+    <Compile Include="IPublisherContract.cs" />
     <Compile Include="ISwitchService.cs" />
     <Compile Include="IXboxService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
