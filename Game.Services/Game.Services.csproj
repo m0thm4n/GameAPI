@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeveloperService.cs" />
     <Compile Include="PlaystationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublisherServices.cs" />

@@ -22,7 +22,7 @@ namespace Game.Data.Entities
         public string MaturityRating { get; set; }
         [Required]
         public decimal Price { get; set; }
-
+        
         [ForeignKey("Developer")]
         public int DeveloperId { get; set; }
         public virtual Developer Developer { get; set; }
