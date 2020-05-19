@@ -8,7 +8,7 @@ namespace Game.Contracts
         void CreateXboxGame(XboxCreateModel xboxToCreate);
         IEnumerable<XboxGetAllGamesModel> GetAllXboxGames();
         XboxDetailsModel GetXboxGame(int id);
-        void UpdateXboxGame(XboxUpdatesModel xboxToUpdate);
+        void UpdateXboxGame(int id, XboxUpdatesModel xboxToUpdate);
         void DeleteXboxGame(int id);
     }
 }
