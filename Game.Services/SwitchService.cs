@@ -87,7 +87,7 @@ namespace Game.Services
             }
         }
 
-        public void UpdateSwitchGame(SwitchUpdateModel switchToUpdate)
+        public void UpdateSwitchGame(int id, SwitchUpdateModel switchToUpdate)
         {
             using (var ctx = new ApplicationDbContext())
             {

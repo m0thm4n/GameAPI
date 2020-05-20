@@ -30,8 +30,8 @@ namespace Game.Services
                         Genre = PCGame.Genre,
                         MaturityRating = PCGame.MaturityRating,
                         Rating = PCGame.Rating,
-                        Publisher = PCGame.Publisher,
-                        Developer = PCGame.Developer
+                        Publisher = PCGame.Publisher.Name,
+                        Developer = PCGame.Developer.Name
                     })
                 .ToList();
             }
@@ -54,8 +54,8 @@ namespace Game.Services
                         Genre = entity.Genre,
                         MaturityRating = entity.MaturityRating,
                         Rating = entity.Rating,
-                        Developer = entity.Developer,
-                        Publisher = entity.Publisher
+                        Developer = entity.Developer.Name,
+                        Publisher = entity.Publisher.Name
                     };
             }
         }
@@ -73,8 +73,8 @@ namespace Game.Services
                     pcGameWeWantToUpdate.Genre = pcGameToUpdate.Genre;
                     pcGameWeWantToUpdate.MaturityRating = pcGameToUpdate.MaturityRating;
                     pcGameWeWantToUpdate.Rating = pcGameToUpdate.Rating;
-                    pcGameWeWantToUpdate.Publisher = pcGameToUpdate.Publisher;
-                    pcGameWeWantToUpdate.Developer = pcGameToUpdate.Developer;
+                    pcGameWeWantToUpdate.Publisher.Name = pcGameToUpdate.Publisher;
+                    pcGameWeWantToUpdate.Developer.Name = pcGameToUpdate.Developer;
 
                     ctx.SaveChanges();
                 }

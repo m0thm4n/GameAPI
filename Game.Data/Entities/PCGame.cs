@@ -1,10 +1,16 @@
-﻿using Game.Models.PC;
+﻿using Game.Data.Entities;
+using Game.Models.PC;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Game.Data
 {
     public class PCGame
     {
+        public PCGame()
+        {
+        }
+
         public PCGame(PCCreateModel pcGameToCreate)
         {
             Title = pcGameToCreate.Title;
@@ -12,8 +18,8 @@ namespace Game.Data
             Genre = pcGameToCreate.Genre;
             MaturityRating = pcGameToCreate.MaturityRating;
             Rating = pcGameToCreate.Rating;
-            Publisher = pcGameToCreate.Publisher;
-            Developer = pcGameToCreate.Developer;
+            Publisher.Name = pcGameToCreate.Publisher;
+            Developer.Name = pcGameToCreate.Developer;
         }
 
         public PCGame(PCDeleteModel pcGameToDelete)
@@ -23,18 +29,14 @@ namespace Game.Data
             Genre = pcGameToDelete.Genre;
             MaturityRating = pcGameToDelete.MaturityRating;
             Rating = pcGameToDelete.Rating;
-            Publisher = pcGameToDelete.Publisher;
-            Developer = pcGameToDelete.Developer;
+            Publisher.Name = pcGameToDelete.Publisher;
+            Developer.Name = pcGameToDelete.Developer;
         }
 
         [Key]
         public int PCGameId { get; set; }
         [Required]
         public string Title { get; set; }
-        [Required]
-        public string Developer { get; set; }
-        [Required]
-        public string Publisher { get; set; }
         [Required]
         public string Genre { get; set; }
         [Required]
@@ -43,5 +45,14 @@ namespace Game.Data
         public string MaturityRating { get; set; }
         [Required]
         public decimal Price { get; set; }
+
+        [ForeignKey("Developer")]
+        public int DeveloperId { get; set; }
+        public virtual Developer Developer { get; set; }
+
+        [ForeignKey("Publisher")]
+        public int PublisherId { get; set; }
+        public virtual Publisher Publisher { get; set; }
+
     }
 }

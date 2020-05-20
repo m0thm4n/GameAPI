@@ -4,13 +4,15 @@ using Game.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 
 namespace Game.API.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Developers")]
-    public class DeveloperController : Controller
+    public class DeveloperController : ApiController
     {
         // GET: Playstation
         private IDeveloperService _developerService;

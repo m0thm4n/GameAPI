@@ -85,7 +85,7 @@ namespace Game.Services
             }
         }
 
-        public void UpdateXboxGame(XboxUpdatesModel xboxToUpdate)
+        public void UpdateXboxGame(int id, XboxUpdatesModel xboxToUpdate)
         {
             using (var ctx = new ApplicationDbContext())
             {
