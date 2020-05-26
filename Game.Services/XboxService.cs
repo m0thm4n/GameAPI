@@ -85,11 +85,11 @@ namespace Game.Services
             }
         }
 
-        public void UpdateXboxGame(int id, XboxUpdatesModel xboxToUpdate)
+        public void UpdateXboxGame(XboxUpdatesModel xboxToUpdate)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                XboxGame xboxWeWantToUpdate = ctx.XboxGames.Find(xboxToUpdate.Name);
+                XboxGame xboxWeWantToUpdate = ctx.XboxGames.Single(x => x.XboxId == xboxToUpdate.XboxId);
 
                 if (xboxToUpdate != null)
                 {

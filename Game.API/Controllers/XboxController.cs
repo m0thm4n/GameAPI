@@ -24,13 +24,13 @@ namespace Game.API.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public IHttpActionResult Update([FromUri] int id, [FromBody] XboxUpdatesModel xboxToUpdate)
+        public IHttpActionResult Update([FromBody] XboxUpdatesModel xboxToUpdate)
         {
             if (ModelState.IsValid)
             {
                 _xboxService = new XboxService();
 
-                _xboxService.UpdateXboxGame(id, xboxToUpdate);
+                _xboxService.UpdateXboxGame(xboxToUpdate);
 
                 return Ok();
             }
