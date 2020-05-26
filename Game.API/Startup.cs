@@ -1,4 +1,4 @@
-﻿qusing Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartup(typeof(Game.API.Startup))]

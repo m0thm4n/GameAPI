@@ -1,64 +1,64 @@
 using System.Web.Http;
 using WebActivatorEx;
-using Game.API;
 using Swashbuckle.Application;
+using System.Linq;
 using Swashbuckle.Swagger;
 using System.Collections.Generic;
+using System.Web.Http.Description;
+using System.Web.Http.Filters;
+using ElevenNote.WebAPI;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace Game.API
+namespace ElevenNote.WebAPI
 {
-    public class SwaggerConfig
+    /// <summary>
+    /// Document filter for adding Authorization header in Swashbuckle / Swagger.
+    /// </summary>
+    public class AddAuthorizationHeaderParameterOperationFilter : IOperationFilter
     {
-        public static void Register()
+        public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
         {
-            var thisAssembly = typeof(SwaggerConfig).Assembly;
+            var filterPipeline = apiDescription.ActionDescriptor.GetFilterPipeline();
+            var isAuthorized = filterPipeline
+                .Select(filterInfo => filterInfo.Instance)
+                .Any(filter => filter is IAuthorizationFilter);
 
-            public class AddAuthorizationHeaderParameterOperationFilter : IOperationFilter
-        {
-            public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
+            var allowAnonymous = apiDescription.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any();
+
+            if (!isAuthorized || allowAnonymous) return;
+
+            if (operation.parameters == null) operation.parameters = new List<Parameter>();
+
+            operation.parameters.Add(new Parameter
             {
-                var filterPipeline = apiDescription.ActionDescriptor.GetFilterPipeline();
-                var isAuthorized = filterPipeline
-                    .Select(filterInfo => filterInfo.Instance)
-                    .Any(filter => filter is IAuthorizationFilter);
-
-                var allowAnonymous = apiDescription.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any();
-
-                if (!isAuthorized || allowAnonymous) return;
-
-                if (operation.parameters == null) operation.parameters = new List<Parameter>();
-
-                operation.parameters.Add(new Parameter
-                {
-                    name = "Authorization",
-                    @in = "header",
-                    description = "from /token endpoint",
-                    required = true,
-                    type = "string"
-                });
-            }
+                name = "Authorization",
+                @in = "header",
+                description = "from /token endpoint",
+                required = true,
+                type = "string"
+            });
         }
+    }
 
-        /// <summary>
-        /// Document filter for adding OAuth Token endpoint documentation in Swashbuckle / Swagger.
-        /// Swagger normally won't find it - the /token endpoint - due to it being programmatically generated.
-        /// </summary>
-        class AuthTokenEndpointOperation : IDocumentFilter
+    /// <summary>
+    /// Document filter for adding OAuth Token endpoint documentation in Swashbuckle / Swagger.
+    /// Swagger normally won't find it - the /token endpoint - due to it being programmatically generated.
+    /// </summary>
+    class AuthTokenEndpointOperation : IDocumentFilter
+    {
+        public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
         {
-            public void Apply(SwaggerDocument swaggerDoc, SchemaRegistry schemaRegistry, IApiExplorer apiExplorer)
+            swaggerDoc.paths.Add("/token", new PathItem
             {
-                swaggerDoc.paths.Add("/token", new PathItem
+                post = new Operation
                 {
-                    post = new Operation
-                    {
-                        tags = new List<string> { "Auth" },
-                        consumes = new List<string>
+                    tags = new List<string> { "Auth" },
+                    consumes = new List<string>
                     {
                         "application/x-www-form-urlencoded"
                     },
-                        parameters = new List<Parameter> {
+                    parameters = new List<Parameter> {
                         new Parameter
                         {
                             type = "string",
@@ -81,20 +81,20 @@ namespace Game.API
                             @in = "formData"
                         }
                     }
-                    }
-                });
-            }
+                }
+            });
         }
+    }
 
-        public class SwaggerConfig
+    public class SwaggerConfig
+    {
+        public static void Register()
         {
-            public static void Register()
-            {
-                var thisAssembly = typeof(SwaggerConfig).Assembly;
+            var thisAssembly = typeof(SwaggerConfig).Assembly;
 
-                GlobalConfiguration.Configuration
-                    .EnableSwagger(c =>
-                    {
+            GlobalConfiguration.Configuration
+                .EnableSwagger(c =>
+                {
                     // By default, the service root url is inferred from the request used to access the docs.
                     // However, there may be situations (e.g. proxy and load-balanced environments) where this does not
                     // resolve correctly. You can workaround this by providing your own code to determine the root URL.
@@ -111,7 +111,7 @@ namespace Game.API
                     // hold additional metadata for an API. Version and title are required but you can also provide
                     // additional fields by chaining methods off SingleApiVersion.
                     //
-                    c.SingleApiVersion("v1", "ElevenNote.WebAPI");
+                    c.SingleApiVersion("v1", "Game.WebAPI");
 
                     // Enable adding the Authorization header to [Authorize]d endpoints.
                     c.OperationFilter(() => new AddAuthorizationHeaderParameterOperationFilter());
@@ -259,8 +259,8 @@ namespace Game.API
                     //
                     //c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
                 })
-                    .EnableSwaggerUi(c =>
-                    {
+                .EnableSwaggerUi(c =>
+                {
                     // Use the "InjectStylesheet" option to enrich the UI with one or more additional CSS stylesheets.
                     // The file must be included in your project as an "Embedded Resource", and then the resource's
                     // "Logical Name" is passed to the method as shown below.
@@ -327,9 +327,6 @@ namespace Game.API
                     //
                     //c.EnableApiKeySupport("apiKey", "header");
                 });
-            }
         }
-    }
-}
     }
 }
