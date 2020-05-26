@@ -56,8 +56,7 @@ namespace Game.API.Controllers
         public IHttpActionResult List()
         {
             _switchService = new SwitchService();
-            _switchService.GetAllSwitchGames();
-            return Ok();
+            return Ok(_switchService.GetAllSwitchGames());
         }
 
         [HttpDelete]

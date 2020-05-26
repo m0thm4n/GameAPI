@@ -51,8 +51,7 @@ namespace Game.API.Controllers
         public IHttpActionResult List()
         {
             _xboxService = new XboxService();
-            _xboxService.GetAllXboxGames();
-            return Ok();
+            return Ok(_xboxService.GetAllXboxGames());
         }
 
         [HttpDelete]

@@ -184,7 +184,7 @@
                     PublisherId = 8
                 });
 
-            //PCGamesToSeed -- PCGame entity needs adjusting to work with this model!
+            //PCGamesToSeed -- PCGame entity may need adjusting to work with this model!
             context.PCGames.AddOrUpdate(g => g.PCGameId,
                 new PCGame()
                 {
