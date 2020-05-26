@@ -85,7 +85,17 @@ namespace Game.Services
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
-                var entities = context.PlaystationGames.Find(id);
+                var playstationGameWeWantToUpdate = context.PlaystationGames.Find(id);
+                if (playstationGameToUpdate != null)
+                {
+                    playstationGameWeWantToUpdate.Title = playstationGameToUpdate.Title;
+                    playstationGameWeWantToUpdate.Genre = playstationGameToUpdate.Genre;
+                    playstationGameWeWantToUpdate.Rating = playstationGameToUpdate.Rating;
+                    playstationGameWeWantToUpdate.MaturityRating = playstationGameToUpdate.MaturityRating;
+                    playstationGameWeWantToUpdate.Price = playstationGameToUpdate.Price;
+
+                    context.SaveChanges();
+                }
             }
         }
     }
