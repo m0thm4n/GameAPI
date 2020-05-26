@@ -21,7 +21,7 @@ namespace Game.Services
             };
             using (ApplicationDbContext ctx = new ApplicationDbContext())
             {
-                ctx.Publisher.Add(publisherToCreate);
+                ctx.Publishers.Add(publisherToCreate);
                 ctx.SaveChanges();
             }
         }
@@ -33,10 +33,10 @@ namespace Game.Services
             {
                 var publisherToDelete =
                     ctx
-                    .Publisher
+                    .Publishers
                     .Single(e => e.PublisherId == id);
 
-                ctx.Publisher.Remove(publisherToDelete);
+                ctx.Publishers.Remove(publisherToDelete);
 
                 ctx.SaveChanges();
             }
@@ -48,7 +48,7 @@ namespace Game.Services
             using (var ctx = new ApplicationDbContext())
             {
                 return ctx
-                    .Publisher
+                    .Publishers
                     .Select(p => new PublisherListModel()
                     {
                         PublisherId = p.PublisherId,
@@ -65,7 +65,7 @@ namespace Game.Services
             {
                 var entity =
                     ctx
-                    .Publisher
+                    .Publishers
                     .Single(e => e.PublisherId == id);
                 return
                     new PublisherListModel
@@ -81,7 +81,7 @@ namespace Game.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                Publisher publisherWeWantToUpdate = ctx.Publisher.Find(publisherToUpdate.Name);
+                Publisher publisherWeWantToUpdate = ctx.Publishers.Find(publisherToUpdate.Name);
 
                 if(publisherToUpdate != null)
                 {

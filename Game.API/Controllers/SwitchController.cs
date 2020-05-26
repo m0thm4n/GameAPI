@@ -29,13 +29,13 @@ namespace Game.API.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public IHttpActionResult Update([FromBody] SwitchUpdateModel switchToUpdate)
+        public IHttpActionResult Update([FromUri] int switchId, [FromBody] SwitchUpdateModel switchToUpdate)
         {
             if (ModelState.IsValid)
             {
                 _switchService = new SwitchService();
 
-                _switchService.UpdateSwitchGame(switchToUpdate);
+                _switchService.UpdateSwitchGame(switchId, switchToUpdate);
 
                 return Ok();
             }
