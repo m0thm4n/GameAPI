@@ -78,6 +78,8 @@ namespace Game.Services
                 if (developerToUpdate != null)
                 {
                     developerWeWantToUpdate.Name = developerToUpdate.Name;
+
+                    context.SaveChanges();
                 }
             }
         }
