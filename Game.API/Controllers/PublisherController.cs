@@ -43,8 +43,7 @@ namespace Game.API.Controllers
         public IHttpActionResult Get([FromUri] int id)
         {
             _publisherService = new PublisherServices();
-            _publisherService.GetPublisher(id);
-            return Ok();
+            return Ok(_publisherService.GetPublisher(id));
         }
 
         [HttpPut]

@@ -44,8 +44,7 @@ namespace Game.API.Controllers
         public IHttpActionResult Get([FromUri] int id)
         {
             _developerService = new DeveloperService();
-            _developerService.GetDeveloper(id);
-            return Ok();
+            return Ok(_developerService.GetDeveloper(id));
         }
 
         [HttpPut]
