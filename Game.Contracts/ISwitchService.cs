@@ -12,7 +12,7 @@ namespace Game.Contracts
         void CreateSwitchGame(SwitchCreateModel switchToCreate);
         IEnumerable<SwitchGetAllModel> GetAllSwitchGames();
         SwitchDetailsModel GetSwitchGame(int id);
-        void UpdateSwitchGame(int id, SwitchUpdateModel switchToUpdate);
+        void UpdateSwitchGame(SwitchUpdateModel switchToUpdate);
         void DeleteSwitchGame(int id);
     }
 }

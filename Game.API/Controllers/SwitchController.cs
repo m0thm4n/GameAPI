@@ -29,13 +29,13 @@ namespace Game.API.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public IHttpActionResult Update([FromUri] int switchId, [FromBody] SwitchUpdateModel switchToUpdate)
+        public IHttpActionResult Update([FromBody] SwitchUpdateModel switchToUpdate)
         {
             if (ModelState.IsValid)
             {
                 _switchService = new SwitchService();
 
-                _switchService.UpdateSwitchGame(switchId, switchToUpdate);
+                _switchService.UpdateSwitchGame(switchToUpdate);
 
                 return Ok();
             }
@@ -56,8 +56,7 @@ namespace Game.API.Controllers
         public IHttpActionResult List()
         {
             _switchService = new SwitchService();
-            _switchService.GetAllSwitchGames();
-            return Ok();
+            return Ok(_switchService.GetAllSwitchGames());
         }
 
         [HttpDelete]

@@ -87,11 +87,11 @@ namespace Game.Services
             }
         }
 
-        public void UpdateSwitchGame(int id, SwitchUpdateModel switchToUpdate)
+        public void UpdateSwitchGame(SwitchUpdateModel switchToUpdate)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                SwitchGame switchWeWantToUpdate = ctx.SwitchGames.Find(switchToUpdate.Name);
+                SwitchGame switchWeWantToUpdate = ctx.SwitchGames.Single(s=>s.SwitchId == switchToUpdate.SwitchId);
 
                 if (switchToUpdate != null)
                 {
