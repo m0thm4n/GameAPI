@@ -60,6 +60,7 @@ namespace Game.API.Controllers
         }
 
         [HttpDelete]
+        [Route("Delete")]
         public IHttpActionResult Delete([FromUri] int switchId)
         {
             if (ModelState.IsValid)
