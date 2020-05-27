@@ -55,6 +55,7 @@ namespace Game.API.Controllers
         }
 
         [HttpDelete]
+        [Route("Delete")]
         public IHttpActionResult Delete([FromUri] int xboxId)
         {
             if (ModelState.IsValid)
