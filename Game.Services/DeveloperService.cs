@@ -69,11 +69,18 @@ namespace Game.Services
             }
         }
 
-        public void UpdateDeveloper(int id, DeveloperUpdateModel playstationGameToUpdate)
+        public void UpdateDeveloper(int id, DeveloperUpdateModel developerToUpdate)
         {
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
-                var entities = context.Developers.Find(id);
+                var developerWeWantToUpdate = context.Developers.Find(id);
+
+                if (developerToUpdate != null)
+                {
+                    developerWeWantToUpdate.Name = developerToUpdate.Name;
+
+                    context.SaveChanges();
+                }
             }
         }
     }
