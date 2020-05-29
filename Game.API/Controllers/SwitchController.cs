@@ -24,7 +24,7 @@ namespace Game.API.Controllers
 
             _switchService.CreateSwitchGame(switchToCreate);
 
-            return Ok();
+            return Ok($"{switchToCreate.Name} has been successfully created!");
         }
 
         [HttpPut]
@@ -37,7 +37,7 @@ namespace Game.API.Controllers
 
                 _switchService.UpdateSwitchGame(switchToUpdate);
 
-                return Ok();
+                return Ok($"{switchToUpdate.Name} has been successfully updated!");
             }
             return BadRequest("Cannot find game to update, please try again.");
         }
@@ -68,7 +68,7 @@ namespace Game.API.Controllers
                 _switchService = new SwitchService();
                 _switchService.DeleteSwitchGame(switchId);
 
-                return Ok();
+                return Ok($"SwitchGame # {switchId} has been successfully deleted.");
             }
             return BadRequest("Wrong ID# entered, please try again.");
         }

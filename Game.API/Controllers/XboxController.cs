@@ -19,7 +19,7 @@ namespace Game.API.Controllers
 
             _xboxService.CreateXboxGame(xboxToCreate);
 
-            return Ok();
+            return Ok($"{xboxToCreate.Name} has been successfully created!");
         }
 
         [HttpPut]
@@ -32,7 +32,7 @@ namespace Game.API.Controllers
 
                 _xboxService.UpdateXboxGame(xboxToUpdate);
 
-                return Ok();
+                return Ok($"{xboxToUpdate.Name} has been successfully updated.");
             }
             return BadRequest("Cannot find game to update, please try again.");
         }
@@ -63,7 +63,7 @@ namespace Game.API.Controllers
                 _xboxService = new XboxService();
                 _xboxService.DeleteXboxGame(xboxId);
 
-                return Ok();
+                return Ok($"XboxGame # {xboxId} has been successfully deleted.");
             }
             return BadRequest("Wrong ID# entered, please try again.");
         }
