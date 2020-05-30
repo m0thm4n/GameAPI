@@ -7,32 +7,6 @@ namespace Game.Data
 {
     public class PCGame
     {
-        public PCGame()
-        {
-        }
-
-        public PCGame(PCCreateModel pcGameToCreate)
-        {
-            Title = pcGameToCreate.Title;
-            Price = pcGameToCreate.Price;
-            Genre = pcGameToCreate.Genre;
-            MaturityRating = pcGameToCreate.MaturityRating;
-            Rating = pcGameToCreate.Rating;
-            Publisher.Name = pcGameToCreate.Publisher;
-            Developer.Name = pcGameToCreate.Developer;
-        }
-
-        public PCGame(PCDeleteModel pcGameToDelete)
-        {
-            Title = pcGameToDelete.Title;
-            Price = pcGameToDelete.Price;
-            Genre = pcGameToDelete.Genre;
-            MaturityRating = pcGameToDelete.MaturityRating;
-            Rating = pcGameToDelete.Rating;
-            Publisher.Name = pcGameToDelete.Publisher;
-            Developer.Name = pcGameToDelete.Developer;
-        }
-
         [Key]
         public int PCGameId { get; set; }
         [Required]
