@@ -14,6 +14,7 @@ namespace Game.Data
 {
     public class PCGame
     {
+<<<<<<< Updated upstream
         public PCGame(PCCreateModel pcGameToCreate)
         {
             Title = pcGameToCreate.Title;
@@ -36,6 +37,8 @@ namespace Game.Data
             DeveloperId = pcGameToDelete.Developer;
         }
 
+=======
+>>>>>>> Stashed changes
         [Key]
         public int PCGameId { get; set; }
         [Required]

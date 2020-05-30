@@ -5,20 +5,34 @@ using Game.Models.PC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+<<<<<<< Updated upstream
 using System.Reflection;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+=======
+using System.Security.Cryptography.X509Certificates;
+>>>>>>> Stashed changes
 
 namespace Game.Services
 {
     public class PCGameService : IPCService
     {
-        public void CreatePCGame(PCCreateModel pcGameToCreate)
+        public void CreatePCGame(PCCreateModel model)
         {
+            var pcGameToCreate = new PCGame()
+            {
+                Title = model.Title,
+                Price = model.Price,
+                Genre = model.Genre,
+                MaturityRating = model.MaturityRating,
+                Rating = model.Rating,
+                PublisherId = model.PublisherId,
+                DeveloperId = model.DeveloperId
+            };
             using (ApplicationDbContext ctx = new ApplicationDbContext())
             {
-                ctx.PCGames.Add(new PCGame(pcGameToCreate));
+                ctx.PCGames.Add(pcGameToCreate);
                 ctx.SaveChanges();
             }
         }
@@ -42,9 +56,11 @@ namespace Game.Services
                 })
 =======
                     {
+                        PCGameId = PCGame.PCGameId,
                         Title = PCGame.Title,
                         Price = PCGame.Price,
                         Genre = PCGame.Genre,
+<<<<<<< Updated upstream
                         MaturityRating = PCGame.MaturityRating,
                         Rating = PCGame.Rating,
                         Publisher = PCGame.PublisherId,
@@ -52,6 +68,12 @@ namespace Game.Services
                     })
 >>>>>>> Stashed changes
                 .ToList();
+=======
+                        Publisher = PCGame.Publisher.Name,
+                        Developer = PCGame.Developer.Name
+                    })
+                .ToArray();
+>>>>>>> Stashed changes
             }
         }
 
@@ -59,17 +81,18 @@ namespace Game.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                PCGame pcGameWeWantToUpdate = ctx.PCGames.Find(pcGameToUpdate.Title);
+                PCGame pcGameWeWantToUpdate = ctx.PCGames.Single(x => x.PCGameId == pcGameToUpdate.PCGameId);
 
                 if (pcGameToUpdate != null)
                 {
                     pcGameWeWantToUpdate.Title = pcGameToUpdate.Title;
                     pcGameWeWantToUpdate.Price = pcGameToUpdate.Price;
-                    pcGameWeWantToUpdate.Genre = pcGameToUpdate.Genre;
-                    pcGameWeWantToUpdate.MaturityRating = pcGameToUpdate.MaturityRating;
                     pcGameWeWantToUpdate.Rating = pcGameToUpdate.Rating;
+<<<<<<< Updated upstream
                     pcGameWeWantToUpdate.PublisherId = pcGameToUpdate.Publisher;
                     pcGameWeWantToUpdate.DeveloperId = pcGameToUpdate.Developer;
+=======
+>>>>>>> Stashed changes
 
                     ctx.SaveChanges();
                 }
