@@ -45,8 +45,7 @@ namespace Game.API.Controllers
         public IHttpActionResult Get([FromUri] int id)
         {
             _playstationService = new PlaystationService();
-            _playstationService.GetPlaystationGame(id);
-            return Ok();
+            return Ok(_playstationService.GetPlaystationGame(id));
         }
 
         [HttpPut]

@@ -18,6 +18,7 @@ namespace Game.Services
                 Rating = playstaionGameToCreate.Rating,
                 MaturityRating = playstaionGameToCreate.MaturityRating,
                 Price = playstaionGameToCreate.Price,
+                Genre = playstaionGameToCreate.Genre
             };
 
             using (ApplicationDbContext context = new ApplicationDbContext())
