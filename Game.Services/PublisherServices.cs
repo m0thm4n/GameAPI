@@ -5,6 +5,7 @@ using Game.Models.Publisher;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,11 +80,11 @@ namespace Game.Services
         // Update Publisher
         public void UpdatePublisher(int id, PublisherUpdateModel publisherToUpdate)
         {
-            using (var ctx = new ApplicationDbContext())
+            using (ApplicationDbContext ctx = new ApplicationDbContext())
             {
-                Publisher publisherWeWantToUpdate = ctx.Publishers.Find(publisherToUpdate.Name);
+                var publisherWeWantToUpdate = ctx.Publishers.Find(id);
 
-                if(publisherToUpdate != null)
+                if (publisherToUpdate != null)
                 {
                     publisherWeWantToUpdate.Name = publisherToUpdate.Name;
 
