@@ -13,12 +13,13 @@ namespace Game.Services
         {
             var entity = new PlaystationGame()
             {
-                PlaystationGameId = playstaionGameToCreate.PlaystationGameId,
                 Title = playstaionGameToCreate.Title,
+                Genre = playstaionGameToCreate.Genre,
                 Rating = playstaionGameToCreate.Rating,
                 MaturityRating = playstaionGameToCreate.MaturityRating,
                 Price = playstaionGameToCreate.Price,
-                Genre = playstaionGameToCreate.Genre
+                PublisherId = playstaionGameToCreate.PublisherId,
+                DeveloperId = playstaionGameToCreate.DeveloperId
             };
 
             using (ApplicationDbContext context = new ApplicationDbContext())
