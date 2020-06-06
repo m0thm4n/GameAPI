@@ -20,11 +20,11 @@ Developers:
 10. Nintendo EPD 
 11. Bandai Namco Studios 
 12. Game Freak
-13. ND Cube 
+13. ND Cube
 14. Rockstar North 
-15.Treyarch 
-16. Sledgehammer Games  
-17. Rockstar Studios 
+15.Treyarch
+16. Sledgehammer Games
+17. Rockstar Studios
 18. Mojang Studios
 19. EA DICE 
 20. Bethesda Game Studios
