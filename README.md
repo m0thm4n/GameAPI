@@ -23,7 +23,7 @@ Developers:
 13. ND Cube 
 14. Rockstar North 
 15.Treyarch 
-16. Sledgehammer Games 
+16. Sledgehammer Games  
 17. Rockstar Studios 
 18. Mojang Studios
 19. EA DICE 
