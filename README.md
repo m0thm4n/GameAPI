@@ -5,7 +5,9 @@ This API allows you access information about video games. There are different en
 
 Information needed when creating new videos games includes a Name or Title, a rating (expressed as a double), a price, a Maturity Rating (ex. E, 10+, T, M, etc), a genre, a developer id (a Foreign Key), and a publisher id (a second Foreign Key).
 
-The database has been pre-seeded with the top ten best-selling video games for each platform (according to Wikipedia, see links below for those lists), along with their corresponding developers and publishers. Since a developer and publisher will be needed when creating a new video game, here are the existing pre-seeded Foreign Keys for reference (more can be added through the CRUD enpoints for Developer and Publisher respectively):
+The database has been pre-seeded with the top ten best-selling video games for each platform (according to Wikipedia, see links below for those lists), along with their corresponding developers and publishers. 
+NOTE: after downloading/cloning this repository, you will need to add a migration and Update-Database to bring in the seeded content! 
+Since a developer and publisher will be needed when creating a new video game, here are the existing pre-seeded Foreign Keys for reference (more can be added through the CRUD enpoints for Developer and Publisher respectively):
 
 Developers: 
     1. Naughty Dog 
